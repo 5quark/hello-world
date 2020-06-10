@@ -1,0 +1,182 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled14.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyMsPBdlICFz1IUSOKyD+MiW",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/5quark/hello-world/blob/master/Denemeipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "f6dizwB6cyAe",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 289
+        },
+        "outputId": "7a8a376e-ebe9-45fe-f768-52b331e30e35"
+      },
+      "source": [
+        "import pandas as pd\n",
+        "data = pd.read_excel(\"radioactiveDecayData.xlsx\")\n",
+        "print(data)"
+      ],
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "   Unnamed: 0 Unnamed: 1  5 squeeze  7 squeeze  9 squeeze 11 squeeze\n",
+            "0         NaN    t_1 (s)      13.03       7.09      15.64      15,57\n",
+            "1         NaN    t_2 (s)      32.11      20.67      30.94      32,64\n",
+            "2      2500 V    t_3 (s)      57.92      40.41      51.33      52,91\n",
+            "3         NaN    t_4 (s)      94.91      65.26      77.47      81,89\n",
+            "4         NaN    t_5 (s)     161.89     106.87     115.70     126,82\n",
+            "5         NaN    t_1 (s)      14.23      15.45      17.57      10.68\n",
+            "6         NaN    t_2 (s)      31.03      32.53      34.73       26.6\n",
+            "7      3000 V    t_3 (s)      56.53      53.36      56.39      46.06\n",
+            "8         NaN    t_4 (s)      94.20      80.12      86.80      72.94\n",
+            "9         NaN    t_5 (s)     165.53     123.22     135.72     111.52\n",
+            "10        NaN    t_1 (s)      19.90      22.47       4.67       21.5\n",
+            "11        NaN    t_2 (s)      40.10      44.34      19.31      40.96\n",
+            "12     3500 V    t_3 (s)      66.73      71.49      36.64      66.87\n",
+            "13        NaN    t_4 (s)     109.08     115.65      58.69      105.7\n",
+            "14        NaN    t_5 (s)     186.41     222.22      90.48     184.46\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "piynlKpScdFT",
+        "colab_type": "text"
+      },
+      "source": [
+        "From this we can immediately see that we need to seperate our data first before doing the analysis. "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "JDtLyr5IgnKj",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 68
+        },
+        "outputId": "cb7cdfe1-8c7c-4f77-d1b9-6e2a9768d8f8"
+      },
+      "source": [
+        "data.columns"
+      ],
+      "execution_count": 21,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "Index(['Unnamed: 0', 'Unnamed: 1', '5 squeeze', '7 squeeze', '9 squeeze',\n",
+              "       '11 squeeze'],\n",
+              "      dtype='object')"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 21
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "N-L5zvB-g2Kw",
+        "colab_type": "text"
+      },
+      "source": [
+        ""
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "yGK11oiJcrEK",
+        "colab_type": "code",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 323
+        },
+        "outputId": "37e2eeb1-cde4-47cc-9c71-cdc5a91454f4"
+      },
+      "source": [
+        "df_2500V=pd.DataFrame([],columns=data.columns)\n",
+        "df_2500V=data[:5]\n",
+        "print(df_2500V)\n",
+        "#repeat the same prodecure for 2 more times for different voltages.\n",
+        "df_3000V=pd.DataFrame([],columns=data.columns)\n",
+        "df_3000V=data[5:10]\n",
+        "df_3500V=pd.DataFrame([],columns=data.columns)\n",
+        "df_3500V=data[10:15]\n",
+        "\n"
+      ],
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "  Unnamed: 0 Unnamed: 1  5 squeeze  7 squeeze  9 squeeze 11 squeeze\n",
+            "0        NaN    t_1 (s)      13.03       7.09      15.64      15,57\n",
+            "1        NaN    t_2 (s)      32.11      20.67      30.94      32,64\n",
+            "2     2500 V    t_3 (s)      57.92      40.41      51.33      52,91\n",
+            "3        NaN    t_4 (s)      94.91      65.26      77.47      81,89\n",
+            "4        NaN    t_5 (s)     161.89     106.87     115.70     126,82\n",
+            "  Unnamed: 0 Unnamed: 1  5 squeeze  7 squeeze  9 squeeze 11 squeeze\n",
+            "5        NaN    t_1 (s)      14.23      15.45      17.57      10.68\n",
+            "6        NaN    t_2 (s)      31.03      32.53      34.73       26.6\n",
+            "7     3000 V    t_3 (s)      56.53      53.36      56.39      46.06\n",
+            "8        NaN    t_4 (s)      94.20      80.12      86.80      72.94\n",
+            "9        NaN    t_5 (s)     165.53     123.22     135.72     111.52\n",
+            "   Unnamed: 0 Unnamed: 1  5 squeeze  7 squeeze  9 squeeze 11 squeeze\n",
+            "10        NaN    t_1 (s)      19.90      22.47       4.67       21.5\n",
+            "11        NaN    t_2 (s)      40.10      44.34      19.31      40.96\n",
+            "12     3500 V    t_3 (s)      66.73      71.49      36.64      66.87\n",
+            "13        NaN    t_4 (s)     109.08     115.65      58.69      105.7\n",
+            "14        NaN    t_5 (s)     186.41     222.22      90.48     184.46\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "eGRVKevjcbKX",
+        "colab_type": "text"
+      },
+      "source": [
+        ""
+      ]
+    }
+  ]
+}
